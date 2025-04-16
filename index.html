@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuxiao Lin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Yuxiao Lin</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="achievement.html">Achievement</a></li>
+                <li><a href="life.html">Life</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="slideshow-container">
+                <div class="slideshow-image active"></div>
+                <div class="slideshow-image"></div>
+                <div class="slideshow-image"></div>
+                <div class="slideshow-image"></div>
+                <div class="slideshow-image"></div>
+                <div class="slideshow-image"></div>
+                <div class="slideshow-overlay"></div>
+                <button class="slideshow-nav prev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+                <button class="slideshow-nav next" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="hero-content">
+                <h1>Yuxiao Lin</h1>
+                <p class="subtitle">BS of Economics+Marketing Student @ UIUC ｜ Data-Driven Strategist | Senior KOL Operator | Senior Social Platforms Operator | Marketing Specialist</p>
+                <div class="hero-social-links">
+                    <a href="https://www.instagram.com/yxiao_l/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="tel:+8618559103089"><i class="fas fa-phone"></i> +86 18559103089</a>
+                    <a href="mailto:lin986640528@gmail.com"><i class="far fa-envelope"></i> lin986640528@gmail.com</a>
+                    <a href="mailto:986640528@qq.com"><i class="far fa-envelope"></i> 986640528@qq.com</a>
+                    <a href="#" class="wechat-link"><i class="fab fa-weixin"></i> WeChat 
+                        <div class="wechat-tooltip">
+                            <div class="wechat-id">WeChat ID: Yux1ao1027</div>
+                            <div class="qr-code-info">Add me on WeChat</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="resume" class="resume">
+            <h2>Resume</h2>
+            <div class="resume-content">
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="ch">Chinese</button>
+                    <button class="lang-btn" data-lang="en">English</button>
+                </div>
+                <div class="pdf-container">
+                    <object data="assets/resume_ch.pdf" type="application/pdf" class="pdf-viewer" id="resumePDF">
+                        <p>It appears you don't have a PDF plugin for this browser.</p>
+                    </object>
+                </div>
+                <div class="download-buttons">
+                    <a href="assets/resume_ch.pdf" download class="download-btn" id="downloadCH">
+                        <i class="fas fa-download"></i> Download Chinese Resume
+                    </a>
+                    <a href="assets/resume_en.pdf" download class="download-btn" id="downloadEN">
+                        <i class="fas fa-download"></i> Download English Resume
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Contact Me</h2>
+            <div class="contact-content">
+                <div class="social-links">
+                    <div class="social-link-wrapper">
+                        <a href="https://www.linkedin.com/in/yuxiao-lin" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <span class="progress-text">Still in progress...</span>
+                    </div>
+                    <a href="mailto:lin986640528@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.instagram.com/yxiao_l/" class="social-link" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Yuxiao Lin. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Slideshow functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slideshowImages = document.querySelectorAll('.slideshow-image');
+            let currentImageIndex = 0;
+            let slideInterval;
+            
+            function showImage(index) {
+                // Remove active class from all images
+                slideshowImages.forEach(img => img.classList.remove('active'));
+                
+                // Ensure index is within bounds
+                currentImageIndex = (index + slideshowImages.length) % slideshowImages.length;
+                
+                // Add active class to current image
+                slideshowImages[currentImageIndex].classList.add('active');
+            }
+            
+            function nextImage() {
+                showImage(currentImageIndex + 1);
+            }
+            
+            function prevImage() {
+                showImage(currentImageIndex - 1);
+            }
+            
+            // Start automatic slideshow
+            function startSlideshow() {
+                slideInterval = setInterval(nextImage, 5000);
+            }
+            
+            // Stop automatic slideshow
+            function stopSlideshow() {
+                clearInterval(slideInterval);
+            }
+            
+            // Add click handlers for navigation buttons
+            document.querySelector('.slideshow-nav.prev').addEventListener('click', function() {
+                stopSlideshow();
+                prevImage();
+                startSlideshow();
+            });
+            
+            document.querySelector('.slideshow-nav.next').addEventListener('click', function() {
+                stopSlideshow();
+                nextImage();
+                startSlideshow();
+            });
+            
+            // Start the slideshow initially
+            startSlideshow();
+            
+            // Resume language toggle
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const resumePDF = document.getElementById('resumePDF');
+            const resumeDownload = document.getElementById('resumeDownload');
+            
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Update PDF source based on language
+                    const lang = this.getAttribute('data-lang');
+                    const pdfPath = `assets/resume_${lang}.pdf`;
+                    
+                    resumePDF.setAttribute('data', pdfPath);
+                    resumeDownload.setAttribute('href', pdfPath);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

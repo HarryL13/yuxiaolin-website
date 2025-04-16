@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievement - Yuxiao Lin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Yuxiao Lin</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#resume">Resume</a></li>
+                <li><a href="achievement.html">Achievement</a></li>
+                <li><a href="life.html">Life</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="achievement">
+            <h2>Achievement</h2>
+            <div class="achievement-content">
+                <div class="achievement-grid">
+                    <div class="achievement-card active" data-category="data-analysis">
+                        <div class="achievement-image">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="achievement-text">
+                            <h3>Data Analysis</h3>
+                            <p>Game data models and insights</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card" data-category="social-media">
+                        <div class="achievement-image">
+                            <i class="fas fa-hashtag"></i>
+                        </div>
+                        <div class="achievement-text">
+                            <h3>Social Media Growth</h3>
+                            <p>TikTok and Instagram success</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card" data-category="marketing">
+                        <div class="achievement-image">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="achievement-text">
+                            <h3>Marketing Success</h3>
+                            <p>Influencer marketing campaigns</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="achievement-details">
+                    <!-- Data Analysis Section -->
+                    <div class="details-section active" id="data-analysis-details">
+                        <h3 class="details-title">Data Analysis Projects</h3>
+                        <div class="details-content">
+                            <p>Developed game data models to predict user growth and revenue, established evaluation mechanisms for product analysis, and provided data-driven insights for marketing strategy at Shengtian Network.</p>
+                            <div class="analysis-highlights">
+                                <h4>Key Achievements:</h4>
+                                <ul>
+                                    <li>Implemented predictive models for user behavior analysis</li>
+                                    <li>Developed automated reporting system for daily metrics</li>
+                                    <li>Created data visualization dashboards for stakeholders</li>
+                                    <li>Optimized marketing spend based on data insights</li>
+                                </ul>
+                            </div>
+                            <div class="download-section">
+                                <h4>Download Full Analysis</h4>
+                                <p>Download the complete data analysis report with detailed metrics and insights:</p>
+                                <a href="assets/data-analysis.xlsx" download class="excel-download-btn">
+                                    <i class="fas fa-file-excel"></i>
+                                    Download Excel Report
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Section -->
+                    <div class="details-section" id="social-media-details">
+                        <h3 class="details-title">Social Media Growth</h3>
+                        <div class="details-content">
+                            <p>Increased company TikTok following from 0 to over 4,500 followers and Instagram from 10,000 to 15,000 followers.</p>
+                            <div class="social-platform-cards">
+                                <a href="https://www.tiktok.com/@ajazz_official?lang=zh-Hans" target="_blank" class="platform-card">
+                                    <i class="fab fa-tiktok"></i>
+                                    <div class="platform-info">
+                                        <h4>TikTok</h4>
+                                        <p>@ajazz_official</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.instagram.com/ajazz_brand/" target="_blank" class="platform-card">
+                                    <i class="fab fa-instagram"></i>
+                                    <div class="platform-info">
+                                        <h4>Instagram</h4>
+                                        <p>@ajazz_brand</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="social-proof-images">
+                                <div class="proof-image-container">
+                                    <h4>TikTok Growth</h4>
+                                    <img src="assets/tiktok-growth.jpg" alt="TikTok follower growth from 0 to 4,500+" class="proof-image">
+                                </div>
+                                <div class="proof-image-container">
+                                    <h4>Instagram Growth</h4>
+                                    <img src="assets/instagram-growth.jpg" alt="Instagram follower growth from 10,000 to 15,000" class="proof-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Marketing Section -->
+                    <div class="details-section" id="marketing-details">
+                        <h3 class="details-title">Marketing Success</h3>
+                        <div class="details-content">
+                            <p>Generated over $800,000 in GMV through influencer marketing and strategic social media campaigns.</p>
+                            <div class="confidentiality-notice">
+                                <i class="fas fa-lock"></i>
+                                <span>Trade Confidentiality</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Yuxiao Lin. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const achievementCards = document.querySelectorAll('.achievement-card');
+            const detailsSections = document.querySelectorAll('.details-section');
+
+            achievementCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Remove active class from all cards
+                    achievementCards.forEach(c => c.classList.remove('active'));
+                    // Add active class to clicked card
+                    this.classList.add('active');
+
+                    // Get the category from data attribute
+                    const category = this.dataset.category;
+
+                    // Hide all details sections
+                    detailsSections.forEach(section => {
+                        section.classList.remove('active');
+                    });
+
+                    // Show the selected details section
+                    document.getElementById(`${category}-details`).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
